@@ -4,8 +4,8 @@
 
 using namespace std;
 
-void add(Reservoir* mas, int& size);
-void del(Reservoir* mas, int& size);
+void add(Reservoir*& mas, int& size);
+void del(Reservoir*& mas, int& size);
 void Save(Reservoir* mas, int size);
 
 enum MENU
@@ -26,7 +26,7 @@ int main() {
 	Reservoir* mas;
 	int size, width, length, depth_max, menu, number_First, number_Secand, volume_Num;
 
-	cout << "Ââåäèòå êîë-âî îáúåêòîâ: ";
+	cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã«-Ã¢Ã® Ã®Ã¡ÃºÃ¥ÃªÃ²Ã®Ã¢: ";
 	cin >> size;
 
 	cin.ignore();
@@ -35,13 +35,13 @@ int main() {
 
 	for (int i = 0; i < size; i++)
 	{
-		cout << "Ââåäèòå íàçâàíèå : ";
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ : ";
 		gets_s(buffer, SIZE);
-		cout << "\nÂâåäèòå øèðèíó : ";
+		cout << "\nÃ‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¸Ã¨Ã°Ã¨Ã­Ã³ : ";
 		cin >> width;
-		cout << "Ââåäèòå äëèíó: ";
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¤Ã«Ã¨Ã­Ã³: ";
 		cin >> length;
-		cout << "Ââåäèòå ìàêñèìàëüíóþ ãëóáèíó: ";
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã³Ã¾ Ã£Ã«Ã³Ã¡Ã¨Ã­Ã³: ";
 		cin >> depth_max;
 
 		cin.ignore();
@@ -54,7 +54,7 @@ int main() {
 
 	do
 	{
-		cout << "\n1 - Ïðîâåðêà íà ñîâïàäåíèÿ íàçâàíèé\n2 - Oáúåì\n3 - Ïðîâåðêà íà ñîâïàäåíèÿ ïëîùàäåé\n4 - Äîáàâèòü îáúåêò\n5 - Óäàëèòü îáúåêò\n6 - Çàïèñàòü â ôàéë\n0 - Âûõîä\n    Ââåäèòå: ";
+		cout << "\n1 - ÃÃ°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã­Ã  Ã±Ã®Ã¢Ã¯Ã Ã¤Ã¥Ã­Ã¨Ã¿ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã©\n2 - OÃ¡ÃºÃ¥Ã¬\n3 - ÃÃ°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã­Ã  Ã±Ã®Ã¢Ã¯Ã Ã¤Ã¥Ã­Ã¨Ã¿ Ã¯Ã«Ã®Ã¹Ã Ã¤Ã¥Ã©\n4 - Ã„Ã®Ã¡Ã Ã¢Ã¨Ã²Ã¼ Ã®Ã¡ÃºÃ¥ÃªÃ²\n5 - Ã“Ã¤Ã Ã«Ã¨Ã²Ã¼ Ã®Ã¡ÃºÃ¥ÃªÃ²\n6 - Ã‡Ã Ã¯Ã¨Ã±Ã Ã²Ã¼ Ã¢ Ã´Ã Ã©Ã«\n0 - Ã‚Ã»ÃµÃ®Ã¤\n    Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥: ";
 		cin >> menu;
 		
 		switch (menu)
@@ -63,20 +63,20 @@ int main() {
 			break;
 
 		case CHECK_NAME:
-			cout << "Ââåäèòå íîìåð 1 è 2 îáúåêòà: ";
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¬Ã¥Ã° 1 Ã¨ 2 Ã®Ã¡ÃºÃ¥ÃªÃ²Ã : ";
 			cin >> number_First >> number_Secand;
 
 			if (mas[number_First - 1].check_Name(mas[number_Secand - 1].get_Name())) {
-				cout << "Äà, îíè ñîâïàäàþò\n";
+				cout << "Ã„Ã , Ã®Ã­Ã¨ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¾Ã²\n";
 			}
 			else {
-				cout << "Íåò, îíè íå ñîâïàäàþò\n";
+				cout << "ÃÃ¥Ã², Ã®Ã­Ã¨ Ã­Ã¥ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¾Ã²\n";
 			}
 
 			break;
 
 		case VOLUME:
-			cout << "Ââåäèòå îáúåêò: ";
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã®Ã¡ÃºÃ¥ÃªÃ²: ";
 			cin >> volume_Num;
 
 			cout << mas[volume_Num].Volume();
@@ -84,14 +84,14 @@ int main() {
 			break;
 
 		case CHECK_SQUARE:
-			cout << "Ââåäèòå íîìåð 1 è 2 îáúåêòà: ";
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¬Ã¥Ã° 1 Ã¨ 2 Ã®Ã¡ÃºÃ¥ÃªÃ²Ã : ";
 			cin >> number_First >> number_Secand;
 
 			if (mas[number_First - 1].check_Square(mas[number_Secand - 1].Square())) {
-				cout << "Äà, îíè ñîâïàäàþò\n";
+				cout << "Ã„Ã , Ã®Ã­Ã¨ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¾Ã²\n";
 			}
 			else {
-				cout << "Íåò, îíè íå ñîâïàäàþò\n";
+				cout << "ÃÃ¥Ã², Ã®Ã­Ã¨ Ã­Ã¥ Ã±Ã®Ã¢Ã¯Ã Ã¤Ã Ã¾Ã²\n";
 			}
 
 			break;
@@ -124,7 +124,7 @@ int main() {
 	return 0;
 }
 
-void add(Reservoir* mas, int& size) {
+void add(Reservoir*& mas, int& size) {
 	Reservoir* mas_p = new Reservoir[size + 1];
 	char buffer[SIZE];
 	int width, length, depth_max;
@@ -133,13 +133,13 @@ void add(Reservoir* mas, int& size) {
 		mas_p[i] = mas[i];
 	}
 
-	cout << "Ââåäèòå íàçâàíèå : ";
+	cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ : ";
 	gets_s(buffer, SIZE);
-	cout << "\nÂâåäèòå øèðèíó : ";
+	cout << "\nÃ‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¸Ã¨Ã°Ã¨Ã­Ã³ : ";
 	cin >> width;
-	cout << "Ââåäèòå äëèíó: ";
+	cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¤Ã«Ã¨Ã­Ã³: ";
 	cin >> length;
-	cout << "Ââåäèòå ìàêñèìàëüíóþ ãëóáèíó: ";
+	cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¬Ã ÃªÃ±Ã¨Ã¬Ã Ã«Ã¼Ã­Ã³Ã¾ Ã£Ã«Ã³Ã¡Ã¨Ã­Ã³: ";
 	cin >> depth_max;
 
 	mas_p[size].set_Name(buffer);
@@ -154,7 +154,7 @@ void add(Reservoir* mas, int& size) {
 	size++;
 }
 
-void del(Reservoir* mas, int& size) {
+void del(Reservoir*& mas, int& size) {
 	Reservoir* mas_p = new Reservoir[size - 1];
 
 	size--;
@@ -172,7 +172,7 @@ void Save(Reservoir* mas, int size) {
 	FILE* file;
 
 	if (fopen_s(&file, "Reservoir.txt", "w") != 0) {
-		cout << "Îøèáêà îòêðûòèÿ ôàéëà\n";
+		cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ  Ã®Ã²ÃªÃ°Ã»Ã²Ã¨Ã¿ Ã´Ã Ã©Ã«Ã \n";
 
 		return;
 	}
@@ -182,7 +182,7 @@ void Save(Reservoir* mas, int size) {
 		fprintf(file, "%d %d %d %d %d ", mas[i].get_depth_max(), mas[i].get_length(), mas[i].get_width(), mas[i].Square(), mas[i].Volume());
 		
 		if (fputs(mas[i].get_Name(), file) == EOF) {
-			cout << "Îøèáêà çàïèñè â ôàéë\n";
+			cout << "ÃŽÃ¸Ã¨Ã¡ÃªÃ  Ã§Ã Ã¯Ã¨Ã±Ã¨ Ã¢ Ã´Ã Ã©Ã«\n";
 
 			fclose(file);
 
@@ -192,10 +192,10 @@ void Save(Reservoir* mas, int size) {
 	}
 
 	if (fclose(file) == EOF) {
-		cout << "\nÔàéë íå çàêðûò\n";
+		cout << "\nÃ”Ã Ã©Ã« Ã­Ã¥ Ã§Ã ÃªÃ°Ã»Ã²\n";
 	}
 	else {
-		cout << "\nÔàéë çàêðûò óñïåøíî\n";
+		cout << "\nÃ”Ã Ã©Ã« Ã§Ã ÃªÃ°Ã»Ã² Ã³Ã±Ã¯Ã¥Ã¸Ã­Ã®\n";
 	}
 
 }
